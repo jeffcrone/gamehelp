@@ -1,3 +1,5 @@
+import wordListJson from "./5-letter-words-alphabetical.json";
+
 /**
  * Mostly just some helper classes
  */
@@ -13,7 +15,7 @@ export class WordHelperUtility {
 	 * Constructor for WordHelperUtility
 	 */
 	constructor() {
-		this._validWords = ["abc", "def"];// Temp assignment for now.
+		this._validWords = wordListJson;
 	}
 
 	/**
