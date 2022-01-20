@@ -1,0 +1,33 @@
+<template>
+	Word Helper
+	<br>
+	Letters you know are in a certain spot:
+	<br>
+	<label for="firstLetter">First Letter</label>
+	<input type="text" maxlength="1" value.bind="_firstLetter" name="firstLetter" id="firstLetter">
+	<br>
+	<label for="secondLetter">Second Letter</label>
+	<input type="text" maxlength="1" value.bind="_secondLetter" name="secondLetter" id="secondLetter">
+	<br>
+	<label for="thirdLetter">Third Letter</label>
+	<input type="text" maxlength="1" value.bind="_thirdLetter" name="thirdLetter" id="thirdLetter">
+	<br>
+	<label for="fourthLetter">Fourth Letter</label>
+	<input type="text" maxlength="1" value.bind="_fourthLetter" name="fourthLetter" id="fourthLetter">
+	<br>
+	<label for="fifthLetter">Fifth Letter</label>
+	<input type="text" maxlength="1" value.bind="_fifthLetter" name="fifthLetter" id="fifthLetter">
+	<br>
+	<label for="containsLetters">Contains Letters</label>
+	<input type="text" maxlength="5" value.bind="_containsLetters" name="containsLetters" id="containsLetters">
+	<br>
+	<label for="excludeLetters">Exclude Letters</label>
+	<input type="text" value.bind="_excludeLetters" name="excludeLetters" id="excludeLetters">
+	<br>
+	Word list:
+	<br>
+	<span repeat.for="word of _validWords">
+		${word}
+		<br>
+	</span>
+</template>
