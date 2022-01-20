@@ -1,9 +1,9 @@
-import {bindable} from 'aurelia-framework';
+import {bindable, autoinject} from 'aurelia-framework';
+import {WordHelperUtility} from 'resources/utilities/word-helper-utility';
 
+@autoinject
 export class WordHelper {
-	@bindable value;
-
-	valueChanged(newValue, oldValue) {
+	constructor(private wordHelperUtility: WordHelperUtility) {
 		//
 	}
 }
