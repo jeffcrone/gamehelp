@@ -74,7 +74,7 @@ export class WordHelperUtility {
 	 * @returns {string} The first letter after trying to set it.
 	 */
 	public setFirstLetter(firstLetter: string) {
-		if(firstLetter) {
+		if(firstLetter || this.isEmptyString(firstLetter)) {
 			this._firstLetter = firstLetter;
 			this._computeValidWords();
 		} else {
@@ -89,7 +89,7 @@ export class WordHelperUtility {
 	 * @returns {string} The second letter after trying to set it.
 	 */
 	public setSecondLetter(secondLetter: string) {
-		if(secondLetter) {
+		if(secondLetter || this.isEmptyString(secondLetter)) {
 			this._secondLetter = secondLetter;
 			this._computeValidWords();
 		} else {
@@ -104,7 +104,7 @@ export class WordHelperUtility {
 	 * @returns {string} The third letter after trying to set it.
 	 */
 	public setThirdLetter(thirdLetter: string) {
-		if(thirdLetter) {
+		if(thirdLetter || this.isEmptyString(thirdLetter)) {
 			this._thirdLetter = thirdLetter;
 			this._computeValidWords();
 		} else {
@@ -119,7 +119,7 @@ export class WordHelperUtility {
 	 * @returns {string} The fourth letter after trying to set it.
 	 */
 	public setFourthLetter(fourthLetter: string) {
-		if(fourthLetter) {
+		if(fourthLetter || this.isEmptyString(fourthLetter)) {
 			this._fourthLetter = fourthLetter;
 			this._computeValidWords();
 		} else {
@@ -134,7 +134,7 @@ export class WordHelperUtility {
 	 * @returns {string} The fifth letter after trying to set it.
 	 */
 	public setFifthLetter(fifthLetter: string) {
-		if(fifthLetter) {
+		if(fifthLetter || this.isEmptyString(fifthLetter)) {
 			this._fifthLetter = fifthLetter;
 			this._computeValidWords();
 		} else {
@@ -149,7 +149,7 @@ export class WordHelperUtility {
 	 * @returns {string} The letter after trying to set them.
 	 */
 	public setContainsLetters(containsLetters: string) {
-		if(containsLetters) {
+		if(containsLetters || this.isEmptyString(containsLetters)) {
 			this._containsLetters = containsLetters;
 			this._computeValidWords();
 		} else {
@@ -164,7 +164,7 @@ export class WordHelperUtility {
 	 * @returns {string} The letters after trying to set them.
 	 */
 	public setExcludeLetters(excludeLetters: string) {
-		if(excludeLetters) {
+		if(excludeLetters || this.isEmptyString(excludeLetters)) {
 			this._excludeLetters = excludeLetters;
 			this._computeValidWords();
 		} else {
@@ -178,6 +178,15 @@ export class WordHelperUtility {
 	 */
 	private _computeValidWords() {
 		this._validWords = this._allWords.filter((word: string) => {return this._checkWord(word)});
+	}
+
+	/**
+	 * Checks if a string is an empty string.
+	 * @param {string} value The string to check.
+	 * @returns {boolean} True if the string is empty, false if it isn't.
+	 */
+	public isEmptyString(value: string): boolean {
+		return (typeof value === 'string') && value.length === 0;
 	}
 
 	/**
