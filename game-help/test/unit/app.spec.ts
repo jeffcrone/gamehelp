@@ -3,24 +3,21 @@ import {StageComponent} from 'aurelia-testing';
 import {PLATFORM} from 'aurelia-pal';
 
 describe('Stage App Component', () => {
-  let component;
+	let component;
 
-  beforeEach(() => {
-    component = StageComponent
-      .withResources(PLATFORM.moduleName('app'))
-      .inView('<app></app>');
-  });
+	beforeEach(() => {
+		component = StageComponent
+			.withResources(PLATFORM.moduleName('app'))
+			.inView('<app></app>');
+	});
 
-  afterEach(() => component.dispose());
+	afterEach(() => component.dispose());
 
-  it('should render message', done => {
-    component.create(bootstrap).then(() => {
-      const view = component.element;
-      expect(view.textContent.trim()).toBe('Hello World!');
-      done();
-    }).catch(e => {
-      fail(e);
-      done();
-    });
-  });
+	it('should render Word Helper', done => {
+		component.create(bootstrap).then(() => {
+			const view = component.element;
+			expect(view.textContent.trim()).toEqual(expect.stringContaining('Word Helper'));
+			done();
+		});
+	});
 });
