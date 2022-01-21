@@ -1,33 +1,47 @@
 <template>
-	Word Helper
+	<require from="./word-helper.css"></require>
+	<h2>Word Helper</h2>
 	<br>
 	Letters you know are in a certain spot:
 	<br>
-	<label for="firstLetter">First Letter</label>
-	<input type="text" maxlength="1" value.bind="_firstLetter" name="firstLetter" id="firstLetter">
+	<div class="singleLetterDiv">
+		<label for="firstLetter">First Letter</label>
+		<input type="text" maxlength="1" value.bind="_firstLetter" name="firstLetter" id="firstLetter" class="singleLetterInput" tabindex="1">
+	</div>
+	<div class="singleLetterDiv">
+		<label for="secondLetter">Second Letter</label>
+		<input type="text" maxlength="1" value.bind="_secondLetter" name="secondLetter" id="secondLetter" class="singleLetterInput" tabindex="2">
+	</div>
+	<div class="singleLetterDiv">
+		<label for="thirdLetter">Third Letter</label>
+		<input type="text" maxlength="1" value.bind="_thirdLetter" name="thirdLetter" id="thirdLetter" class="singleLetterInput" tabindex="3">
+	</div>
+	<div class="singleLetterDiv">
+		<label for="fourthLetter">Fourth Letter</label>
+		<input type="text" maxlength="1" value.bind="_fourthLetter" name="fourthLetter" id="fourthLetter" class="singleLetterInput" tabindex="4">
+	</div>
+	<div class="singleLetterDiv">
+		<label for="fifthLetter">Fifth Letter</label>
+		<input type="text" maxlength="1" value.bind="_fifthLetter" name="fifthLetter" id="fifthLetter" class="singleLetterInput" tabindex="5">
+	</div>
 	<br>
-	<label for="secondLetter">Second Letter</label>
-	<input type="text" maxlength="1" value.bind="_secondLetter" name="secondLetter" id="secondLetter">
+	<div class="multipleLettersDiv">
+		<label for="containsLetters">Contains Letters</label>
+		<input type="text" maxlength="5" value.bind="_containsLetters" name="containsLetters" id="containsLetters" tabindex="6">
+	</div>
 	<br>
-	<label for="thirdLetter">Third Letter</label>
-	<input type="text" maxlength="1" value.bind="_thirdLetter" name="thirdLetter" id="thirdLetter">
+	<div class="multipleLettersDiv">
+		<label for="excludeLetters">Exclude Letters</label>
+		<input type="text" value.bind="_excludeLetters" name="excludeLetters" id="excludeLetters" tabindex="7">
+	</div>
 	<br>
-	<label for="fourthLetter">Fourth Letter</label>
-	<input type="text" maxlength="1" value.bind="_fourthLetter" name="fourthLetter" id="fourthLetter">
-	<br>
-	<label for="fifthLetter">Fifth Letter</label>
-	<input type="text" maxlength="1" value.bind="_fifthLetter" name="fifthLetter" id="fifthLetter">
-	<br>
-	<label for="containsLetters">Contains Letters</label>
-	<input type="text" maxlength="5" value.bind="_containsLetters" name="containsLetters" id="containsLetters">
-	<br>
-	<label for="excludeLetters">Exclude Letters</label>
-	<input type="text" value.bind="_excludeLetters" name="excludeLetters" id="excludeLetters">
-	<br>
-	Word list:
-	<br>
-	<span repeat.for="word of _validWords">
-		${word}
+	<div class="wordListDiv">
+		Word list:
 		<br>
-	</span>
+		<ol>
+		<li class="wordListElement	" repeat.for="word of _validWords">
+			${word}
+		</li>
+		</ol>
+	</div>
 </template>
