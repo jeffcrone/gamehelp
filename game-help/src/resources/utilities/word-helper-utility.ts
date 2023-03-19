@@ -48,6 +48,36 @@ export class WordHelperUtility {
 	private _fifthLetter: string;
 
 	/**
+	 * The list of known invalid first letter(s) of the word. Undefined or empty array if unknown.
+	 * @type {[string]}
+	 */
+	private _excludeFirstLetter: string[];
+
+	/**
+	 * The list of known invalid second letter(s) of the word. Undefined or empty array if unknown.
+	 * @type {string}
+	 */
+	private _excludeSecondLetter: string[];
+
+	/**
+	 * The list of known invalid third letter(s) of the word. Undefined or empty array if unknown.
+	 * @type {string}
+	 */
+	private _excludeThirdLetter: string[];
+
+	/**
+	 * The list of known invalid fourth letter(s) of the word. Undefined or empty array if unknown.
+	 * @type {string}
+	 */
+	private _excludeFourthLetter: string[];
+
+	/**
+	 * The list of known invalid fifth letter(s) of the word. Undefined or empty array if unknown.
+	 * @type {string}
+	 */
+	private _excludeFifthLetter: string[];
+
+	/**
 	 * Letters that we know the word contains but not which spot in the word
 	 * @type {string}
 	 */
@@ -108,7 +138,7 @@ export class WordHelperUtility {
 			this._thirdLetter = thirdLetter;
 			this._computeValidWords();
 		} else {
-			console.log("Error setting the third letter, firstLetter = ", thirdLetter);
+			console.log("Error setting the third letter, thirdLetter = ", thirdLetter);
 		}
 		return this._thirdLetter;
 	}
@@ -123,7 +153,7 @@ export class WordHelperUtility {
 			this._fourthLetter = fourthLetter;
 			this._computeValidWords();
 		} else {
-			console.log("Error setting the fourth letter, firstLetter = ", fourthLetter);
+			console.log("Error setting the fourth letter, fourthLetter = ", fourthLetter);
 		}
 		return this._fourthLetter;
 	}
@@ -141,6 +171,81 @@ export class WordHelperUtility {
 			console.log("Error setting the fifth letter, fifthLetter = ", fifthLetter);
 		}
 		return this._fifthLetter;
+	}
+
+	/**
+	 * Sets the known invalid first letter(s) of the word.
+	 * @param {string} excludeFirstLetter String of letters to exclude for the first letter.
+	 * @returns {string} The first letter exclude list after trying to set it.
+	 */
+	public setExcludeFirstLetter(excludeFirstLetter: string) {
+		if(excludeFirstLetter || this.isEmptyString(excludeFirstLetter)) {
+			this._excludeFirstLetter = Array.from(excludeFirstLetter);
+			this._computeValidWords();
+		} else {
+			console.log("Error setting the first letter, excludeFirstLetter = ", excludeFirstLetter);
+		}
+		return this._excludeFirstLetter;
+	}
+
+	/**
+	 * Sets the known invalid second letter(s) of the word.
+	 * @param {string} excludeSecondLetter String of letters to exclude for the second letter.
+	 * @returns {string} The second letter exclude list after trying to set it.
+	 */
+	public setExcludeSecondLetter(excludeSecondLetter: string) {
+		if(excludeSecondLetter || this.isEmptyString(excludeSecondLetter)) {
+			this._excludeSecondLetter = Array.from(excludeSecondLetter);
+			this._computeValidWords();
+		} else {
+			console.log("Error setting the second letter, excludeSecondLetter = ", excludeSecondLetter);
+		}
+		return this._secondLetter;
+	}
+
+	/**
+	 * Sets the known invalid third letter(s) of the word.
+	 * @param {string} excludeThirdLetter String of letters to exclude for the third letter.
+	 * @returns {string} The third letter exclude list after trying to set it.
+	 */
+	public setExcludeThirdLetter(excludeThirdLetter: string) {
+		if(excludeThirdLetter || this.isEmptyString(excludeThirdLetter)) {
+			this._excludeThirdLetter = Array.from(excludeThirdLetter);
+			this._computeValidWords();
+		} else {
+			console.log("Error setting the third letter, excludeThirdLetter = ", excludeThirdLetter);
+		}
+		return this._excludeThirdLetter;
+	}
+
+	/**
+	 * Sets the known invalid fourth letter(s) of the word.
+	 * @param {string} excludeFourthLetter String of letters to exclude for the fourth letter.
+	 * @returns {string} The fourth letter exclude list after trying to set it.
+	 */
+	public setExcludeFourthLetter(excludeFourthLetter: string) {
+		if(excludeFourthLetter || this.isEmptyString(excludeFourthLetter)) {
+			this._excludeFourthLetter = Array.from(excludeFourthLetter);
+			this._computeValidWords();
+		} else {
+			console.log("Error setting the fourth letter, excludeFourthLetter = ", excludeFourthLetter);
+		}
+		return this._excludeFourthLetter;
+	}
+
+	/**
+	 * Sets the known invalid fifth letter(s) of the word.
+	 * @param {string} excludeFifthLetter String of letters to exclude for the fifth letter.
+	 * @returns {string} The fifth letter exclude list after trying to set it.
+	 */
+	public setExcludeFifthLetter(excludeFifthLetter: string) {
+		if(excludeFifthLetter || this.isEmptyString(excludeFifthLetter)) {
+			this._excludeFifthLetter = Array.from(excludeFifthLetter);
+			this._computeValidWords();
+		} else {
+			console.log("Error setting the fifth letter, excludeFifthLetter = ", excludeFifthLetter);
+		}
+		return this._excludeFifthLetter;
 	}
 
 	/**
